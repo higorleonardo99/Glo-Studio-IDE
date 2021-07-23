@@ -9,6 +9,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import android.content.Context;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import android.content.res.AssetManager;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
 
 /*
 * Class Utils File
@@ -76,7 +83,7 @@ public class FileUtils {
             while((line = reader.readLine()) != null){
                 
                 builder.append(line);
-                builder.append("/n");
+                builder.append("\n");
             }
             
             reader.close();
@@ -108,6 +115,38 @@ public class FileUtils {
         catch(IOException e){
             
             Log.e(LOG_FILE,"error writer file ->"+e.getMessage());
+        }
+    }
+    
+   public static void copyAssets(Context context,String fileName,File toPath){
+       
+       AssetManager mAssets = context.getAssets();
+       InputStream in;
+       OutputStream out;
+       
+       try{
+           in = mAssets.open(fileName);
+           out = new FileOutputStream(toPath);
+           copyFile(in,out);
+           
+           in.close();
+           in = null;
+           
+           out.flush();
+           out.close();
+           out = null;
+       }
+       catch(IOException e){
+           Log.e(LOG_FILE,"error copy file from assets " + e.getMessage());
+       }
+   }
+    
+    
+    public static void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1) {
+            out.write(buffer, 0, read);
         }
     }
     

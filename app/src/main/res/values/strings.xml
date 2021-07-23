@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Glo Studio IDE</string>
-    
+    <string name="close">close</string>
+    <string name="open">open</string>
 </resources>

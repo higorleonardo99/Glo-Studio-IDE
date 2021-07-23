@@ -22,6 +22,7 @@ public class AndroidProject {
     private File dirJava;
     private File dirRes;
     
+    private File manifest;
     //resources
     private Resources resources;
     
@@ -45,6 +46,8 @@ public class AndroidProject {
         
         dirJava = FileUtils.createNewFolder(dirSrcMain,"java");
         dirRes = FileUtils.createNewFolder(dirSrcMain,"res");
+        
+        manifest = FileUtils.createNewFile(dirSrcMain,"AndroidManifest.xml");
         
         resources = new Resources(dirRes);
         
@@ -75,12 +78,49 @@ public class AndroidProject {
     }
     
     /*
+    * @method return AndroidManofest
+    * @return File
+    */
+    public File getAndroidManifest(){
+        return this.manifest;
+    }
+    
+    /*
     * @method return resources project
     * @return Resources
     */
     public Resources getResources(){
         return this.resources;
     }
+    
+    
+    //* Getters folders project
+    public File getDirProject(){
+        return this.dirProject;
+    }
+    
+    public File getDirApp(){
+        return this.dirApp;
+    }
+    
+    public File getDirLibs(){
+        return this.dirLibs;
+    }
+    
+    public File getDirSrcMain(){
+        return this.dirSrcMain;
+    }
+    
+    public File getDirRes(){
+        return this.dirRes;
+    }
+    
+    public File getDirJava(){
+        return this.dirJava;
+    }
+    
+    //***************
+    
     
     /*
     * @method storage save project

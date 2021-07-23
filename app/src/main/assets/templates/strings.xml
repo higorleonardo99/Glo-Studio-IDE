@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">$project_name$</string>
+    
+</resources>

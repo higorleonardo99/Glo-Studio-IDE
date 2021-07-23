@@ -1,10 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="bo.hlva.glostudio">
-
-    <!-- modificar o eliminar el contenido de la tarjeta SD -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    package="$package_name$">
 
     <application
         android:allowBackup="true"
@@ -13,31 +10,22 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:largeHeap="true"
-        android:name=".Applications"
         android:resizeableActivity="false">
 
         <activity
-            android:name=".ide.activies.ProjectManagerActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
-
             <intent-filter>
-
-                <action android:name="android.intent.action.MAIN"/>
-
+				<action android:name="android.intent.action.MAIN"/>
+				
                 <category android:name="android.intent.category.LAUNCHER"/>
-
             </intent-filter>
-
         </activity>
-
-        <activity
-            android:name=".ide.activies.DebugActivity"
-            android:screenOrientation="portrait"/>
-
-        <meta-data
-            android:name="android.max_aspect"
-            android:value="4.0"/>
+        
+      <meta-data
+          android:name="android.max_aspect"
+          android:value="4.0"/>
 
     </application>
-
+	
 </manifest>
